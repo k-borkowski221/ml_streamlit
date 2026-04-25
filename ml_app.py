@@ -47,7 +47,7 @@ with st.form("add_row_form"):
                            columns=['sepal length (cm)', 'sepal width (cm)',
                                     'petal length (cm)', 'petal width (cm)'])
         prediction = model.predict(input_data)
-        predicted_species = target_name[prediction[0]]
+        predicted_species = target_names[prediction[0]]
  
         new_row = pd.DataFrame([{
             'sepal length (cm)': sepal_length,
