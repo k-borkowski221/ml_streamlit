@@ -12,7 +12,7 @@ def load_data():
     return df, iris.target_names
 
 # Train RandomForest Classifier
-df, target_name = load_data()
+df, target_names = load_data()
 
 # Dataset for model training
 X = df.iloc[:, :-1]
@@ -43,7 +43,9 @@ with st.form("add_row_form"):
  
     if submitted:
         # Prediction
-        input_data = [[sepal_length, sepal_width, petal_length, petal_width]]
+        input_data = pd.DataFrame([[sepal_length, sepal_width, petal_length, petal_width]],
+                           columns=['sepal length (cm)', 'sepal width (cm)',
+                                    'petal length (cm)', 'petal width (cm)'])
         prediction = model.predict(input_data)
         predicted_species = target_name[prediction[0]]
  
